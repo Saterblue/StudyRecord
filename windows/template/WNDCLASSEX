@@ -1,15 +1,15 @@
-WNDCLASSEX winclass		//	a blank windows class
+WNDCLASSEX winclass		//a blank windows class
 winclass.cbSize = sizeof(WMDCLASSEX) ;
 winclass.style = CS_VREDRAW | CS_HREDRAW | CS_OWNDC | CS_DBLCLICKS ;
-winclass.lpfnWndProc = WinProc ;			//	this is our function
-winclass.cbCksExtra = 0 ;				//	extra class info space
-winclass.cbWndExtra = 0 ;	      //	extra window info space
-winclass.hinstance = hinstance ;		//	assign the application instance
+winclass.lpfnWndProc = WinProc ;			//this is our function
+winclass.cbCksExtra = 0 ;				//extra class info space
+winclass.cbWndExtra = 0 ;	      //extra window info space
+winclass.hinstance = hinstance ;		//assign the application instance
 winclass.hIcon = LoadIcon(NULL, IDI_APPLICATION) ;					
 winclass.hCursor = LoadCursor(NULL, IDC_ARROW) ;
 winclass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH) ;
-winclass.lpszMenuName = NULL ;				//	the name of the menu to attach
-winclass.lpszClassName = "WINCLASS1" ;			//	the name of the class itself
-winclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION) ;		//	the handle of the small icon
+winclass.lpszMenuName = NULL ;				//the name of the menu to attach
+winclass.lpszClassName = "WINCLASS1" ;			//the name of the class itself
+winclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION) ;		//the handle of the small icon
 
-RegisterClassEx(&winclass) ;	  //	regist the Windows class
+RegisterClassEx(&winclass) ;	  //regist the Windows class
