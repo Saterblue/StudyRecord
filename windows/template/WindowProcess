@@ -1,7 +1,6 @@
 #include <Windows.h>
 #include <windowsx.h>
 #include <stdio.h>
-#include <math.h>
 
 #define WIN32_LEAN_AND_MEAN
 #define WINDOW_CLASS_NAME "WINCLASS1"
@@ -75,6 +74,8 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinstance,LPSTR lpcmdline,
 		hinstance,
 		NULL
 	);
+	
+	//ShowWindow(&hwnd , ncmdshow);		
 	
 	if ( 0==hwnd || NULL==hwnd )
 		return (0);
