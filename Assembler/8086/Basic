@@ -1,19 +1,34 @@
 register:
 
-AX:
-BX:
-CX:
-DX:
-SI:
-DI:
-SP:
-BP:
-ES:
-CS:
-SS:
-DS:
-IP:
-FLAGS:
+AX:Accumulator
+BX:Base
+CX:Count
+DX:Data
+SI:Source Index
+DI:Destination Index
+SP:Stack Pointer
+IP:Instruction Pointer
+BP:Base Pointer
+ES:Extra Segment
+CS:Code Segment
+SS:Stack Segment
+DS:Data Segment
+
+        15  14  13  12  11  10    9   8   7   6   5   4   3   2   1   0
+FLAGS:  X   X   X   X   O   D     I   T   S   Z   X   Ac  X   P   X   Cy
+
+O:Overflow flag
+D:Direction flag
+I:Interrupt flag
+T:Trap flag
+S:Sign flag
+Z:Zero flag
+Ac:Auxiliary carry flag
+P:Parity flag
+Cy:Carry flag
+
+X:Not used
+
 
 **********************************************************************************
 Command:
