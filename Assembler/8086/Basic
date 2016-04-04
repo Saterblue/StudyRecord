@@ -39,6 +39,13 @@ sub bx,ax       //bx -= ax
 adc ax,bx       //ax = ax + bx + CF(Flag)
 sbb ax,bx       //ax = ax - bx - CF
 
-
+jump address    //jump to address
+jcxz address    //if( CX == 0 ) {jump to address}
+je   address    //if( ZF == 1 ) {jump to address}
+jne  address    //if( ZF != 1 ) {jump to address}
+jb   address    //if( CF == 1 ) {jump to address}
+jnb  address    //if( CF == 0 ) {jump to address}
+ja   address    //if( CF == 0 && ZF == 0) {jump to address}
+jna  address    //if( CF == 1 || ZF == 1) {jump to address}
 
 
