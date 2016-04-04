@@ -36,7 +36,7 @@ Command:
 mov ax,bx       //ax = bx
 add ax,bx       //ax += bx
 sub bx,ax       //bx -= ax
-
+adc ax,bx       //ax = ax + bx + Cy(Flag)
 
 
 
