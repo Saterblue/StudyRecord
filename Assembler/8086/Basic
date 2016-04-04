@@ -33,7 +33,9 @@ X:Not used
 **********************************************************************************
 Command:
 
-mov ax,bx   //ax += bx
+mov ax,bx       //ax = bx
+add ax,bx       //ax += bx
+sub bx,ax       //bx -= ax
 
 
 
