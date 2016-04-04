@@ -34,3 +34,9 @@ X:Not used
 Command:
 
 mov ax,bx   //ax += bx
+sub ax,bx   //ax -= bx
+
+
+
+
+
