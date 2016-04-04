@@ -25,7 +25,7 @@ S:Sign flag
 Z:Zero flag
 Ac:Auxiliary carry flag
 P:Parity flag
-Cy:Carry flag
+C:Carry flag
 
 X:Not used
 
@@ -36,8 +36,8 @@ Command:
 mov ax,bx       //ax = bx
 add ax,bx       //ax += bx
 sub bx,ax       //bx -= ax
-adc ax,bx       //ax = ax + bx + Cy(Flag)
-sbb ax,bx       //ax = ax - bx - Cy
+adc ax,bx       //ax = ax + bx + CF(Flag)
+sbb ax,bx       //ax = ax - bx - CF
 
 
 
