@@ -15,7 +15,7 @@ SS:Stack Segment
 DS:Data Segment
 
         15  14  13  12  11  10    9   8   7   6   5   4   3   2   1   0
-FLAGS:  X   X   X   X   O   D     I   T   S   Z   X   Ac  X   P   X   Cy
+FLAGS:  X   X   X   X   O   D     I   T   S   Z   X   Ac  X   P   X   C
 
 O:Overflow flag
 D:Direction flag
