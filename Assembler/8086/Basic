@@ -33,25 +33,52 @@ X:Not used
 **********************************************************************************
 Command:
 
+************************************************************************************************************************ 
+push ax                 //1. SP = SP-2   2. SS:[SP] = ax      
+pop ax                  //1. ax = SS:[SP]   2.SP = SP+2
+ 
+ 
+        mov cx,n        
+token:  add ax,bx
+        loop token      //loop CX times command between: token ~ loop token  ||  this example: loop n times >> add ax,bx
+
+        mov ax,bx
+        call token      //2 command:  1. push IP  2. jmp token
+        mov bx,dx
+token:  mov bx,ax       
+        ....
+        
+        call far ptr token      //3 command:  1. push CS  2. push IP  3. jmp token
+        mov bx,dx
+token:  mov bx,ax 
+        
+        
+        mov ax,bx
+        ret             //pop IP
+        
+        mov ax,bx
+        retf            //2 command: 1. pop IP   2. pop CS
+        
+************************************************************************************************************************
+
 mov ax,bx       //ax = bx
 add ax,bx       //ax += bx
 sub bx,ax       //bx -= ax
 adc ax,bx       //ax = ax + bx + CF(Flag)
 sbb ax,bx       //ax = ax - bx - CF
+div bl          //ax=ax/bl  dx=ax%bl            bl is 8bit,div 8bit need use 16bit ax
+div bx          //ax=dxax/bx  dx=dxax%bx        bx is 16bit,div 16bit need use 32bit, ax is the Low ,dx is the High.
+mul bx          //ax *= bx
 
-*************************   
-        mov cx,n
-token:  add ax,bx
-        loop token      //loop CX times command between: token ~ loop token  ||  this example: loop n times >> add ax,bx
-*************************
-
-
+cld             //set DF=0
+std             //set DF=1
 movsb           //ES*16+DI = DS*16 +SI (byte)   if(DF == 0){inc DI  inc SI} else if(DF == 1){dec DI,dec SI}
 movsw           //ES*16+DI = DS*16 +SI (word)   if(DF == 0){add DI,2  add SI,2} else if(DF == 1){sub DI,2  sub SI,2}  
 rep movsb       //loop cx times movsb
 rep movsw       //loop cx times movsw
+
                 
-jmp address    //jump to address
+jmp address    //jump to address   most likely:  ip = adrress
 jcxz address    //if( CX == 0 ) {jump to address}
 je   address    //if( ZF == 1 ) {jump to address}
 jne  address    //if( ZF != 1 ) {jump to address}
