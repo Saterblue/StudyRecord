@@ -1,0 +1,26 @@
+B8000H ~ B8F9F display in the DOS Modol
+
+000 ~ 09F  Row 1
+0A0 ~ 13F  Row 2		
+140 ~ 1DF  Row 3   row: 0A0*R
+
+00~01 Col 1	       vol: 2*C
+02~03 Col 2
+9E~9F Col 80	     SI = 0A0*R + 2*C
+
+display char format:
+		    7		         6   5   4 	        	3		              2 	1 	0
+mean:		BL	         R   G   B 	        	I	               	R	  G	  B
+	    	Glitter:7    Background:6~4 		 	Light:3 	        CharColor:2~0 
+R: Red Color	
+G: Green Color
+B: Blue Color	
+
+Example:
+DS:B800  SI:0000
+B800:0000	41 02 42 02 43 02 44 02 45 02 46 02
+
+B800:0000-B800:0001 value 0241H    A word stead of a char
+High:00000010b  Low:41H	 
+High is the format,Low is the value
+Mean:no Glitter,no Background,no Light,Green_Color,Char 41h ='A'  |||||| position B800:0000   display at Row 1 Col 1 
