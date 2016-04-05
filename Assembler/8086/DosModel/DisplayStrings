@@ -9,9 +9,9 @@ B8000H ~ B8F9F display in the DOS Modol
 9E~9F Col 80	     SI = 0A0*R + 2*C
 
 display char format:
-		    7		         6   5   4 	        	3		              2 	1 	0
-mean:		BL	         R   G   B 	        	I	               	R	  G	  B
-	    	Glitter:7    Background:6~4 		 	Light:3 	        CharColor:2~0 
+		7		 6   5   4 	       	3		        2  1  0
+mean:		BL	         R   G   B 	       	I	               	R  G  B
+	    	Glitter:7    Background:6~4 		Light:3 	        CharColor:2~0 
 R: Red Color	
 G: Green Color
 B: Blue Color	
