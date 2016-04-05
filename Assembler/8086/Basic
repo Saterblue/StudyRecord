@@ -38,7 +38,8 @@ Command:
 ************************************************************************************************************************ 
 push ax                 //1. SP = SP-2   2. SS:[SP] = ax      
 pop ax                  //1. ax = SS:[SP]   2.SP = SP+2
- 
+pushf                   //push Flag value to the stack 
+popf                    //statck value pop to the Flag
  
         mov cx,n        
 token:  add ax,bx
