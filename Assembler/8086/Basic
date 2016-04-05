@@ -19,15 +19,15 @@ FLAGS:  X   X   X   X   O   D     I   T   S   Z   X   Ac  X   P   X   C
 
                                                 
                                                                                 1  /  0
-O:Overflow flag                                                                 VO / NV
-D:Direction flag                                                                DN / UP
+O:Overflow flag                                                          OF:    VO / NV
+D:Direction flag                                                         DF:    DN / UP
 I:Interrupt flag
 T:Trap flag
-S:Sign flag                                                                     NG / PL
-Z:Zero flag                                                                     ZR / NZ        
+S:Sign flag                                                              SF:    NG / PL
+Z:Zero flag                                                              ZF:    ZR / NZ
 Ac:Auxiliary carry flag
-P:Parity flag                                                                   PE / PO
-C:Carry flag                                                                    CY / NC
+P:Parity flag                                                            PF:    PE / PO
+C:Carry flag                                                             CF:    CY / NC
 
 X:Not used
 
