@@ -17,15 +17,17 @@ DS:Data Segment
         15  14  13  12  11  10    9   8   7   6   5   4   3   2   1   0
 FLAGS:  X   X   X   X   O   D     I   T   S   Z   X   Ac  X   P   X   C
 
-O:Overflow flag
-D:Direction flag
+                                                
+                                                                                1  /  0
+O:Overflow flag                                                                 VO / NV
+D:Direction flag                                                                DN / UP
 I:Interrupt flag
 T:Trap flag
-S:Sign flag
-Z:Zero flag
+S:Sign flag                                                                     NG / PL
+Z:Zero flag                                                                     ZR / NZ        
 Ac:Auxiliary carry flag
-P:Parity flag
-C:Carry flag
+P:Parity flag                                                                   PE / PO
+C:Carry flag                                                                    CY / NC
 
 X:Not used
 
