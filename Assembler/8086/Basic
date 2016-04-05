@@ -39,8 +39,8 @@ sub bx,ax       //bx -= ax
 adc ax,bx       //ax = ax + bx + CF(Flag)
 sbb ax,bx       //ax = ax - bx - CF
 
-movsb           //ES*16+DI = DS*16 +SI   if(DF == 0){inc DI,inc SI} else if(DF == 1){dec DI,dec SI}
-                //movsb command use to copy  DS:[SI]  into  ES:[DI]        
+movsb           //ES*16+DI = DS*16 +SI (byte)   if(DF == 0){inc DI  inc SI} else if(DF == 1){dec DI,dec SI}
+movsw           //ES*16+DI = DS*16 +SI (word)   if(DF == 0){add DI,2  add SI,2} else if(DF == 1){sub DI,2  sub SI,2}  
                 
 jmp address    //jump to address
 jcxz address    //if( CX == 0 ) {jump to address}
