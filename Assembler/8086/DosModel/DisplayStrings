@@ -4,9 +4,9 @@ B8000H ~ B8F9F display in the DOS Modol
 0A0 ~ 13F  Row 2		
 140 ~ 1DF  Row 3   row: 0A0*R
 
-00~01 Col 1	       vol: 2*C
+00~01 Col 1	   vol: 2*C
 02~03 Col 2
-9E~9F Col 80	     SI = 0A0*R + 2*C
+9E~9F Col 80	   SI = 0A0*R + 2*C
 
 display char format:
 		7		 6   5   4 	       	3		        2  1  0
