@@ -40,7 +40,8 @@ adc ax,bx       //ax = ax + bx + CF(Flag)
 sbb ax,bx       //ax = ax - bx - CF
 
 movsb           //ES*16+DI = DS*16 +SI   if(DF == 0){inc DI,inc SI} else if(DF == 1){dec DI,dec SI}
-
+                //movsb command use to copy  DS:[SI]  into  ES:[DI]        
+                
 jmp address    //jump to address
 jcxz address    //if( CX == 0 ) {jump to address}
 je   address    //if( ZF == 1 ) {jump to address}
