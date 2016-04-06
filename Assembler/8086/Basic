@@ -41,37 +41,39 @@ pop ax                  //1. ax = SS:[SP]   2.SP = SP+2
 pushf                   //push Flag value to the stack 
 popf                    //statck value pop to the Flag
 
-cmd: loop 
+cmd: loop               //loop CX times command between: token ~ loop token  ||  this example: loop n times >> add ax,bx
 
         mov cx,n        
 token:  add ax,bx
-        loop token      //loop CX times command between: token ~ loop token  ||  this example: loop n times >> add ax,bx
+        loop token      
 
-cmd: call
+cmd: call               //1. push IP  2. jmp token
 
         mov ax,bx
-        call token      //1. push IP  2. jmp token
+        call token      
         mov bx,dx
 token:  mov bx,ax       
         ....
 
- cmd: call far ptr       
+ cmd: call far ptr       //1. push CS  2. push IP  3. jmp token      
  
-        call far ptr token      //1. push CS  2. push IP  3. jmp token
+        call far ptr token      
         mov bx,dx
 token:  mov bx,ax 
 
-cmd:  ret
+cmd:  ret                //pop IP
 
         mov ax,bx
-        ret             //pop IP
+        ret            
 
-cmd:  retf
+cmd:  retf              //1. pop IP   2. pop CS
 
         mov ax,bx
-        retf            //1. pop IP   2. pop CS
+        retf            
         
-cmd: int                //1. pushf  
+cmd:  int N             //1. pushf   2. push CS   3. push IP   4. mov CS,0000:[N*4+2]   5. mov IP,0000:[N*4]
+
+cmd:  iret              //1. pop IP  2. pop CS  3. popf
 
         
         
