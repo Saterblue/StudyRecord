@@ -1,30 +1,32 @@
 int 10h:
 
-mov ah,2	      //ah=2 represent use Second function: Set Cursor Position
+mov ah,2	//ah=2 represent use Second function: Set Cursor Position
 mov bh,0        //Set page 0
 mov dh,5        //Set Row 5
 mov dl,12       //Set Col 12
 int 10h         //do function
 
-mov ah,9      //ah=9  9th function: Display String in the Cursor Position
-mov al,'a'	  //Set charactor to display
-mov bl,7	    //Set Color properties
-mov bh,0	    //Set page 0
-mov cx,3	    //Set repeat charactor 3 times
-int 10h       //do function
-		                  	RGB		                                	RGB
-    	7	                654	                	3		              210
-    glitter	        BackroundColor        	Light            	Char Color
+mov ah,9	//ah=9  9th function: Display String in the Cursor Position
+mov al,'a'	//Set charactor to display
+mov bl,7	//Set Color properties,detail is below
+mov bh,0	//Set page 0
+mov cx,3	//Set repeat charactor 3 times
+int 10h 	//do function
+
+				RGB		                        RGB
+    	7	                654		 3			210
+    	glitter		  BackroundColor        Light            	Char Color
 
 *****************************************************************************************
 int 21:
 
-mov ah,4ch	; 4ch号子程序，功能为程序返回
-mov al,00	; 返回值
+mov ah,4ch	//4C function
+mov al,00	//Set return value = 00
 int 21h
 
-mov ah,9	;9h号子程序，功能为在光标位置显示字符串，遇到'$'字符结束,从DS:[DX]开始
+mov ah,9	//9th function:Display String in Cursor position;the data from DS:[SI]  until  '$'  charactor
 
+example:
 assume cs:code
 data segment
 	db 'Wellcom to masm','$'
@@ -35,15 +37,12 @@ start:
 		mov bh,0
 		mov dh,5
 		mov dl,12
-		int 10h			//设置光标
-
+		int 10h			//Set Cursor Position
 		mov ax,data
 		mov ds,ax
 		mov dx,0
 		mov ah,9
 		int 21h
-	s:	nop
-		jmp s	
 		mov ax,4c00h
 		int 21h
 code ends
