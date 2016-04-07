@@ -24,7 +24,7 @@ mov ah,4ch	//4C function
 mov al,00	//Set return value = 00
 int 21h
 
-mov ah,9	//9th function:Display String in Cursor position;the data from DS:[SI]  until  '$'  charactor
+mov ah,9	//9th function:Display String in Cursor position;the data from DS:[DX]  until  '$'  charactor
 
 example:
 assume cs:code
