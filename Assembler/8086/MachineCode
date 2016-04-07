@@ -1,0 +1,14 @@
+1.mov XY,Num 
+machine_code:Bn xx	 
+{n<4 xl}  {4<n<8 xh} {8<n<C AX-DX} {C<n DP SI DI}	
+
+mov xx,Num		B8	  	B9	  	BA	  	BB		BD	BE	BF 				
+
+				      AX	   	CX	  	DX	  	BX		DP	SI	DI	ES	CS	SS	DS	IP	SP
+			       ah al   ch cl   dh dl   bh bl			
+
+mov xl,Num 	 B4 B0   B5 B1   B6 B2   B7 B3	
+
+example:      
+mov ax,003D   translate MachineCode{  B8 3D 00  } 
+mov dl,7C     translate MachineCode{  B2 7C     }     
