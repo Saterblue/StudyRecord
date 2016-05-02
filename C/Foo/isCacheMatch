@@ -24,7 +24,7 @@ int main(void) {
   	struct test t1={1,'a',3.4f};	
   	struct test t2={1,'a',3.4f};
   
-  	isCacheMatch(&t1,&t2,sizeof(t1))?printf("Match!\n"):printf("Not Match!\n");
+  	isCacheMatch(&t1,&t2,sizeof(t1)) ? printf("Match!\n") : printf("Not Match!\n") ;
   	
   	return 0;
 }
