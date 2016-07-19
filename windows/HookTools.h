@@ -2,7 +2,6 @@
 
 #define _in_
 #define _out_
-
 #define HOOKID "00484340166978069456"
 
 #ifndef MAX_PATH
