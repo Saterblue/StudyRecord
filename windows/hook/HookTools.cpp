@@ -19,13 +19,13 @@ int HookTool::init()
 {
 	HANDLE SnapShot_h = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,NULL);
 	if( NULL  == SnapShot_h )
-		return MessageErr("»ñÈ¡½ø³Ì¿ìÕÕÊ§°Ü!");
+		return MessageErr("CreateSnapShot ERROR!");
 
 	PROCESSENTRY32  Entry32; 
 	Entry32.dwSize = sizeof(Entry32);
 
 	if( FALSE == Process32First(SnapShot_h,&Entry32) )
-		return MessageErr("ÎÞ·¨¶Ô½ø³Ì¿ìÕÕ½øÐÐÃ¶¾Ù²Ù×÷");
+		return MessageErr("Enum Snap ERROR!");
 
 	while(Process32Next(SnapShot_h,&Entry32))
 	{
@@ -35,7 +35,7 @@ int HookTool::init()
 			free(str1);
 			HANDLE target = OpenProcess(PROCESS_ALL_ACCESS,NULL,Entry32.th32ProcessID);
 			if( NULL == target )
-				return MessageErr("ÎÞ·¨»ñµÃÖ¸¶¨½ø³Ì¾ä±ú");
+				return MessageErr("Can't OpenProcess!");
 
 			targetProcessID = Entry32.th32ProcessID;
 			target_h = target;
@@ -46,7 +46,7 @@ int HookTool::init()
 	}
 	CloseHandle(SnapShot_h);
 	ErrorCode = -1;
-	return MessageErr("Î´ÕÒµ½½ø³Ì!");
+	return MessageErr("Can't Find The Process");
 }
 
 HookTool::~HookTool()
@@ -114,7 +114,7 @@ int HookTool::CreateMapMemory()
 }
 
 
-//ÓÐÒ»¸öµ°ÌÛµÄÎÊÌâÔÚÓÚ£ºµ÷ÊÔÊ±ÔÚÔ´´úÂëµÄÄ¿Â¼ÏÂ,¹¤×÷Ê±ÔÚexe³ÌÐòÍ¬Ä¿Â¼ÏÂ
+//The xxx.dll file should in the same path
 int HookTool::LoadDllToTarget(char* dllName)
 {
 	char dllPath[MAX_PATH]={0};
