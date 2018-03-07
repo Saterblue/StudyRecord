@@ -19,8 +19,7 @@ void DrawModel()
 	
 	for(unsigned int i = 0 ; i < reader.m_faces_f.size(); i++){
         	unsigned int n = reader.m_faces_f[i].arg0.size();
-        	if( side != n)
-        	{
+        	if( side != n){
 			glEnd();
 			side = n;
 			switch(side){
@@ -30,9 +29,10 @@ void DrawModel()
 			}
         	}
 		
-	for(unsigned int j = 0 ; j < reader.m_faces_f[i].arg0.size(); j ++){
-	    unsigned int index = reader.m_faces_f[i].arg0[j] - 1;
-	    glVertex3f(reader.m_vertices_v[index].x,reader.m_vertices_v[index].y,reader.m_vertices_v[index].z);}
+		for(unsigned int j = 0 ; j < reader.m_faces_f[i].arg0.size(); j ++){
+			unsigned int index = reader.m_faces_f[i].arg0[j] - 1;
+			glVertex3f(reader.m_vertices_v[index].x,reader.m_vertices_v[index].y,reader.m_vertices_v[index].z);
+		}
     	}
 	glEnd();
 	RotateAngle   += 1.0f;
