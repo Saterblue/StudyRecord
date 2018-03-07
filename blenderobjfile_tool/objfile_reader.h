@@ -37,5 +37,20 @@ public:
     bool readObjFile(const char* fileName);//read the file,store the data to the vecters;
 };
 
+//demo:
+//    ObjFileReader ofr;
+//    bool r =  ofr.readObjFile("dm1.obj");
+//    if(r)
+//    {
+//        for(unsigned int i = 0; i < ofr.m_faces_f.size(); i ++)
+//        {
+//            printf("face:");
+//            for(unsigned int j = 0 ; j < ofr.m_faces_f[i].arg0.size(); j++)
+//            {
+//                printf("%d//%d ",ofr.m_faces_f[i].arg0[j],ofr.m_faces_f[i].arg1[j]);
+//            }
+//            printf("\n");
+//        }
+//    }
 
 #endif // OBJFILE_READER_2018
