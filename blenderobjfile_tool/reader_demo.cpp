@@ -9,11 +9,12 @@ ObjFileReader reader;
 //the function assume file.obj ,f line only 3 or 4 vertices
 void DrawModel()
 {
-	static  float RotateAngle = 1.0f;
+	static  float RotateAngle = 0.0f;
+	static  float z0 = -0.5f;
 	static  unsigned int side = 3;
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glTranslatef(0.0f,0.0f,-5.0f);
-	glRotatef(RotateAngle,0.5f,0.3f,0.1f);
+	glTranslatef(0.0f,0.0f,z0);
+	glRotatef(RotateAngle,0.0f,0.0f,0.0f);
 	glColor3f(0.5f, 1.0f, 1.0f);
 	glBegin(GL_QUADS);
 	
